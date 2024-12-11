@@ -1,10 +1,10 @@
 import React from 'react';
 
 
-class UserInfor extends React.Component {
+class AddUserInfor extends React.Component {
     state = {
-        name: 'MeoDev',
-        age: 20,
+        name: '',
+        age: '',
         address: 'Nghean'
     };
 
@@ -16,10 +16,6 @@ class UserInfor extends React.Component {
     }
 
     handleOnChangeAge = (event) => {
-        // !!! BAD CODE
-        // cách code này phá vỡ quy trình quản lí state của react, không được phép thay đổi state trực tiếp
-        // this.state.age = event.target.value;
-        // luôn sử dụng setState để cập nhật state nhằm đảm bảo React hoạt động chính xác và UI được đồng bộ
         this.setState({
             age: event.target.value
         })
@@ -27,7 +23,11 @@ class UserInfor extends React.Component {
 
     handleOnSubmit = (event) => {
         event.preventDefault();
-        console.log(this.state);
+        this.props.handleAddNewUser({
+            id: Math.floor(Math.random() * 100 + 1) + '-random',
+            name: this.state.name,
+            age: this.state.age
+        });
     }
 
 
@@ -62,4 +62,4 @@ class UserInfor extends React.Component {
 
 }
 
-export default UserInfor;
+export default AddUserInfor;
