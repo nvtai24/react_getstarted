@@ -17,11 +17,11 @@ class DisplayInfor extends React.Component {
     // template + logic js
     render() {
         const { listUsers } = this.props;
-        // console.table(listUsers);
+        console.table(listUsers);
         return (
             <div className='display-infor-container'>
 
-                <img src={logo}></img>
+                {/* <img src={logo}></img> */}
 
                 <div>
                     <button onClick={() => {this.handleShowHide()}}>
@@ -36,6 +36,9 @@ class DisplayInfor extends React.Component {
                                 <div key={user.id} className={user.age > 18 ? "green" : "red"}>
                                     <div>My name is {user.name}</div>
                                     <div>I'm {user.age} years old</div>
+                                    <div>
+                                        <button onClick={() => this.props.handleDeleteUser(user.id)}>Delete</button>
+                                    </div>
                                     <hr/>
                                 </div>
                             )
