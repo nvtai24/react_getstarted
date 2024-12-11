@@ -7,14 +7,31 @@ class DisplayInfor extends React.Component {
         // props là read-only, không thể thay đổi giá trị của props
 
         // destructuring props
-        const {name, age} = this.props;
+        const { listUsers } = this.props;
+        // const listUsers = this.props.listUsers;
 
-        console.log(this.props);
+        console.log(listUsers);
 
         return (
-            <div>
+            <div> 
+                {listUsers.map((user) => {
+                    return (
+                        <div key={user.index}>
+                            <div>My name is {user.name}</div>
+                            <div>I'm {user.age} years old</div>
+                            <hr/>
+                        </div>
+                    )
+                })}
+
+                {/* <div>My name is {name}</div>
+                <div>I'm {age} years old</div>
+                <hr/>
                 <div>My name is {name}</div>
                 <div>I'm {age} years old</div>
+                <hr/>
+                <div>My name is {name}</div>
+                <div>I'm {age} years old</div> */}
             </div>
         )
     }
