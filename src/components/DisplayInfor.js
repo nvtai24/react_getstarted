@@ -13,6 +13,8 @@ class DisplayInfor extends React.Component {
         })
     }
 
+
+    // template + logic js
     render() {
         const { listUsers } = this.props;
         // console.table(listUsers);
